@@ -89,7 +89,7 @@ export default function App() {
 				setIsTimerRunning(false);
 			}
 		}
-	}, [currentQuestion, showScore]);
+	}, [currentQuestion, showScore, questions.length]);
 
 	useEffect(() => {
 		if (isTimerRunning && timer > 0) {
