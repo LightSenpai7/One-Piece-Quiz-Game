@@ -24,7 +24,7 @@ Challenge yourself with questions about One Piece while enjoying a modern, respo
 
 ## 🚀 Live Demo
 
-Experience the quiz: [One Piece Quiz Game](https://quizgamereact.netlify.app)
+Experience the quiz: [One Piece Quiz Game](https://onepiecequizgame.netlify.app)
 
 ## 🛠️ Technical Stack
 
