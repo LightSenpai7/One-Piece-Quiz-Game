@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 export default function App() {
 	const questions = [
@@ -76,18 +76,7 @@ export default function App() {
 	const [timer, setTimer] = useState(30);
 	const [isTimerRunning, setIsTimerRunning] = useState(true);
 
-	useEffect(() => {
-		if (isTimerRunning && timer > 0) {
-			const interval = setInterval(() => {
-				setTimer((prev) => prev - 1);
-			}, 1000);
-			return () => clearInterval(interval);
-		} else if (timer === 0) {
-			handleTimeUp();
-		}
-	}, [timer, isTimerRunning]);
-
-	const handleTimeUp = () => {
+	const handleTimeUp = useCallback(() => {
 		if (!showScore) {
 			const nextQuestion = currentQuestion + 1;
 			setSelectedAnswer(null);
@@ -100,7 +89,18 @@ export default function App() {
 				setIsTimerRunning(false);
 			}
 		}
-	};
+	}, [currentQuestion, showScore]);
+
+	useEffect(() => {
+		if (isTimerRunning && timer > 0) {
+			const interval = setInterval(() => {
+				setTimer((prev) => prev - 1);
+			}, 1000);
+			return () => clearInterval(interval);
+		} else if (timer === 0) {
+			handleTimeUp();
+		}
+	}, [timer, isTimerRunning, handleTimeUp]);
 
 	const handleAnswerOptionClick = (isCorrect, index) => {
 		setSelectedAnswer(index);
