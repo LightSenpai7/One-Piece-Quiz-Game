@@ -75,6 +75,7 @@ export default function App() {
 	const [fadeIn, setFadeIn] = useState(true);
 	const [timer, setTimer] = useState(30);
 	const [isTimerRunning, setIsTimerRunning] = useState(true);
+	const [loading, setLoading] = useState(true);
 
 	const handleTimeUp = useCallback(() => {
 		if (!showScore) {
@@ -101,6 +102,13 @@ export default function App() {
 			handleTimeUp();
 		}
 	}, [timer, isTimerRunning, handleTimeUp]);
+
+	useEffect(() => {
+		// Simulate initial loading
+		setTimeout(() => {
+			setLoading(false);
+		}, 2000);
+	}, []);
 
 	const handleAnswerOptionClick = (isCorrect, index) => {
 		setSelectedAnswer(index);
@@ -146,6 +154,17 @@ export default function App() {
 		if (percentage >= 40) return "You might need to rewatch some episodes!";
 		return "Time to start your One Piece journey!";
 	};
+
+	if (loading) {
+		return (
+			<div className="loading-container">
+				<div className="loading-spinner">
+					<img src="/favIcon.ico" alt="Loading..." />
+				</div>
+				<p>Loading Quiz...</p>
+			</div>
+		);
+	}
 
 	return (
 		<div className='app'>
