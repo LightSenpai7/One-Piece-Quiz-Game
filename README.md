@@ -139,10 +139,6 @@ const questions = [
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 🙏 Acknowledgments
 
 - One Piece created by Eiichiro Oda
@@ -150,9 +146,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - All contributors and testers
 
 ---
-
-<div align="center">
-  Made with ❤️ for One Piece fans
-  <br>
-  Happy Quizzing! 🏴‍☠️
-</div>
